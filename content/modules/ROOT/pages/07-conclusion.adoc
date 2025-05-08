@@ -1,0 +1,11 @@
+For more details on using the firewall system role, please read this
+blog post:
+https://www.redhat.com/en/blog/automating-firewall-configuration-rhel-system-roles
+
+If you have any comments or suggestions, please visit our github repo
+and:
+
+* https://github.com/rhel-labs/instruqt/discussions[Start a discussion]
+* https://github.com/rhel-labs/instruqt/discussions/categories/ideas[Tell
+us your idea for a new lab or feature]
+* https://github.com/rhel-labs/instruqt/issues[Report an issue]

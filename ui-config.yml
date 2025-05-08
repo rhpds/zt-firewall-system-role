@@ -1,0 +1,30 @@
+---
+antora:
+  name: modules
+  dir: www
+  modules:
+    - name: "01-introduction"
+      label: "Introduction"
+      solveButton: true
+    - name: "02-installsystemroles"
+      label: "Installsystemroles"
+      solveButton: true
+    - name: "03-openhttpservice"
+      label: "Openhttpservice"
+      solveButton: true
+    - name: "04-openarbitraryport"
+      label: "Openarbitraryport"
+      solveButton: true
+    - name: "05-portforward"
+      label: "Portforward"
+      solveButton: true
+    - name: "06-reset"
+      label: "Reset"
+      solveButton: true
+    - name: "07-conclusion"
+      label: "Conclusion"
+      solveButton: true
+
+tabs:
+  - name: ">_ terminal"
+    url: /wetty
