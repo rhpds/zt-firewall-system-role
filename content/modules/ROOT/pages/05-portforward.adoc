@@ -1,4 +1,4 @@
-In this challenge we’ll forward incoming tcp requests to vm1 on port
+In this challenge we’ll forward incoming tcp requests to rhel1 on port
 9999 to 12345.
 
 In the link:tab-0[button label="`controlnode`"] terminal, add the lines
@@ -22,7 +22,7 @@ terminal.
 ansible-playbook -i hosts -b firewall.yml
 ----
 
-In the link:tab-1[button label="`vm1`"] terminal, run `+nc+`, listening
+In the link:tab-1[button label="`rhel1`"] terminal, run `+nc+`, listening
 on port 12345.
 
 [source,bash,run]
@@ -35,7 +35,7 @@ then type some stuff.
 
 [source,bash,run]
 ----
-nc vm1 9999
+nc rhel1 9999
 ----
 
 .ncport9999

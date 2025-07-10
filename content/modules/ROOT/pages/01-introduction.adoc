@@ -1,29 +1,30 @@
-____
-_NOTE:_ To make the inline images larger, expand this window.
-image:../assets/slider.png[Menu Slider]
-____
+
+To make the inline images larger, expand this window.
+
+.Menu Slider
+image::../assets/slider.png[Menu Slider]
 
 This lab is composed of two hosts.
 
 [arabic]
 . controlnode
-. vm1
+. rhel1
 
 In this lab, we will use the host `+controlnode+` as the "`control
 node`" or the node where we will install and run the firewall system
-role. Firewall changes will be applied to `+vm1+`.
+role. Firewall changes will be applied to `+rhel1+`.
 
 We’ll perform the following 3 tasks.
 
 [arabic]
 . We will use the firewall system role to open the appropriate port to
-access web servers on `+vm1+`. This exercise is to show how to open
+access web servers on `+rhel1+`. This exercise is to show how to open
 firewall ports by service.
 . As well, we will also use the firewall system role to open port 9999
-on `+vm1+` to enable inbound tcp connections. This exercise is to show
+on `+rhel1+` to enable inbound tcp connections. This exercise is to show
 how to open an arbitrary firewall port.
 . Finally, we’ll configure port forwarding from 9999 to port 12345 on
-`+vm1+`.
+`+rhel1+`.
 
 .afterapplying
 image::../assets/firewallsystemrolesoverview.png[afterapplying]

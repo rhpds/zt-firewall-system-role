@@ -1,12 +1,12 @@
-In this challenge, we will enable access to the http port 80 on `+vm1+`.
+In this challenge, we will enable access to the http port 80 on `+rhel1+`.
 
 First, we’ll prove to ourselves that port 80 is blocked by the firewall
-running on `+vm1+`.
+running on `+rhel1+`.
 
-Switch to the link:tab-1[button label="`vm1`"] terminal by clicking on
-this button: link:tab-1[button label="`vm1`"].
+Switch to the link:tab-1[button label="`rhel1`"] terminal by clicking on
+this button: link:tab-1[button label="`rhel1`"].
 
-Run the following in link:tab-1[button label="`vm1`"].
+Run the following in link:tab-1[button label="`rhel1`"].
 
 [source,bash,run]
 ----
@@ -18,7 +18,7 @@ image::../assets/fwcmdno80.png[fwcmdno80]
 
 The output above shows that port 80 is not open.
 
-In the `+vm1+` terminal, run `+nc -l 80+`. This command runs the utility
+In the `+rhel1+` terminal, run `+nc -l 80+`. This command runs the utility
 `+netcat+` and tells it to listen for incoming traffic on port 80.
 
 [source,bash,run]
@@ -29,7 +29,7 @@ nc -l 80
 .nclistening
 image::../assets/nclistening.png[nclistening]
 
-`+netcat+` is now listening on port 80 on `+vm1+`.
+`+netcat+` is now listening on port 80 on `+rhel1+`.
 
 ____
 [!WARNING] Do not exit out of `+nc+` in this terminal!
@@ -37,22 +37,22 @@ ____
 
 Switch back to the link:tab-0[button label="`controlnode`"] terminal.
 
-Enter the command `+nc vm1 80+`. This tells `+netcat+` to connect to
-port 80 on `+vm1+`.
+Enter the command `+nc rhel1 80+`. This tells `+netcat+` to connect to
+port 80 on `+rhel1+`.
 
 [source,bash,run]
 ----
-nc vm1 80
+nc rhel1 80
 ----
 
 .noroute
 image::../assets/no-route.png[noroute]
 
-`+netcat+` cannot connect to `+vm1+` on port 80.
+`+netcat+` cannot connect to `+rhel1+` on port 80.
 
-Let’s use RHEL systems roles to open up port 80 on `+vm1+`.
+Let’s use RHEL systems roles to open up port 80 on `+rhel1+`.
 
-First, Ansible requires a host file pointing at the `+vm1+` host. The
+First, Ansible requires a host file pointing at the `+rhel1+` host. The
 host file looks like this.
 
 Copy and paste the following into the link:tab-0[button
@@ -63,7 +63,7 @@ label="`controlnode`"] terminal.
 tee -a /root/hosts << EOF
 all:
   hosts:
-    vm1:
+    rhel1:
   vars:
     firewall:
       - service: http
@@ -86,7 +86,7 @@ tee -a /root/firewall.yml <<EOF
 EOF
 ----
 
-Now we’ll apply the system role to `+vm1+` by running the following
+Now we’ll apply the system role to `+rhel1+` by running the following
 command on link:tab-0[button label="`controlnode`"] .
 
 [source,bash,run]
@@ -97,27 +97,27 @@ ansible-playbook -i hosts -b firewall.yml
 .applysystemrole
 image::../assets/applysystemrole.png[applysystemrole]
 
-Run `+nc vm1 80+` in the link:tab-0[button label="`controlnode`"]
+Run `+nc rhel1 80+` in the link:tab-0[button label="`controlnode`"]
 terminal again.
 
 [source,bash,run]
 ----
-nc vm1 80
+nc rhel1 80
 ----
 
 We’ll type something into the terminal and hit enter. You should see it
-printed out in the link:tab-1[button label="`vm1`"] terminal.
+printed out in the link:tab-1[button label="`rhel1`"] terminal.
 
 .ncresult80
 image::../assets/ncport80.png[ncresult80]
 
 Exit out of `+nc+` in the link:tab-0[button label="`controlnode`"]
 terminal by typing `+ctrl-c+`. This will cause `+nc+` to exit in
-link:tab-1[button label="`vm1`"].
+link:tab-1[button label="`rhel1`"].
 
 Finally, we’ll use `+firewall-cmd+` to list the open ports on
-link:tab-1[button label="`vm1`"]. Switch to the link:tab-1[button
-label="`vm1`"] terminal and run the following command.
+link:tab-1[button label="`rhel1`"]. Switch to the link:tab-1[button
+label="`rhel1`"] terminal and run the following command.
 
 [source,bash,run]
 ----
