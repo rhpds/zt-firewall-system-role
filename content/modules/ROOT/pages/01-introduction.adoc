@@ -2,7 +2,7 @@
 To make the inline images larger, expand this window.
 
 .Menu Slider
-image::../assets/slider.png[Menu Slider]
+image::slider.png[Menu Slider]
 
 This lab is composed of two hosts.
 
