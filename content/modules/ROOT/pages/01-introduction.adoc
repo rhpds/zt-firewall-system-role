@@ -2,7 +2,7 @@
 To make the inline images larger, expand this window.
 
 .Menu Slider
-image::../assets/slider.png[Menu Slider]
+image::slider.png[Menu Slider]
 
 This lab is composed of two hosts.
 
@@ -27,10 +27,10 @@ how to open an arbitrary firewall port.
 `+rhel1+`.
 
 .afterapplying
-image::../assets/firewallsystemrolesoverview.png[afterapplying]
+image::firewallsystemrolesoverview.png[afterapplying]
 
 You can access each host by clicking on the tabs in the upper left
 corner of the GUI.
 
 .tabs
-image::../assets/instruqt-tab.png[tabs]
+image::instruqt-tab.png[tabs]
