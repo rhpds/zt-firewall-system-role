@@ -1,7 +1,8 @@
 ---
 virtualmachines:
   - name: "controlnode"
-    image: "virt-rhel-9-5-11-29-24"
+    image: "rhel-10-0-07-09-25-3"
+    bootloader: efi
     memory: "2G"
     cores: 1
     image_size: "40G"
@@ -10,3 +11,20 @@ virtualmachines:
         value: "bastions"
     networks:
       - default
+  - name: "rhel1"
+    image: "rhel-10-0-07-09-25-3"
+    bootloader: efi
+    memory: "2G"
+    cores: 1
+    image_size: "40G"
+    tags:
+      - key: "AnsibleGroup"
+        value: "nodes"
+    networks:
+      - defaulti
+    userdata: |
+      #cloud-config
+      fqdn: rhel1.lab
+      hostname: rhel1
+      prefer_fqdn_over_hostname: true
+      manage_etc_hosts: true
