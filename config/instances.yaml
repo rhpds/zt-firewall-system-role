@@ -21,7 +21,7 @@ virtualmachines:
       - key: "AnsibleGroup"
         value: "nodes"
     networks:
-      - defaulti
+      - default
     userdata: |
       #cloud-config
       fqdn: rhel1.lab
