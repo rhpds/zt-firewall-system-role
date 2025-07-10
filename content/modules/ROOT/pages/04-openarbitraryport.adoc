@@ -1,4 +1,4 @@
-In this challenge we’ll open port 9999 on `+vm1+`.
+In this challenge we’ll open port 9999 on `+rhel1+`.
 
 In the link:tab-0[button label="`controlnode`"] terminal, add the lines
 `+- port: ['9999/tcp']+` and `+state: enabled+` to the `+hosts+` file.
@@ -24,7 +24,7 @@ ansible-playbook -i hosts -b firewall.yml
 .applyportopen
 image::../assets/applyportopen.png[applyportopen]
 
-In the link:tab-1[button label="`vm1`"] terminal, run `+nc+`, listening
+In the link:tab-1[button label="`rhel1`"] terminal, run `+nc+`, listening
 on port 9999.
 
 [source,bash,run]
@@ -37,7 +37,7 @@ then type some stuff.
 
 [source,bash,run]
 ----
-nc vm1 9999
+nc rhel1 9999
 ----
 
 .ncport9999
