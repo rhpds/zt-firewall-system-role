@@ -3,9 +3,7 @@
 To make the inline images larger, expand this window.
 
 .Menu Slider
-image::../assets/images/slider.png[Menu Slider]
-
-image::test.png[test]
+image::slider.png[Menu Slider]
 
 This lab is composed of two hosts.
 

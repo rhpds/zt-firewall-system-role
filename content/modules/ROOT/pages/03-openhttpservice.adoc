@@ -1,19 +1,18 @@
+== Open HTTP Service firewall port on rhel1.lab
+
 In this challenge, we will enable access to the http port 80 on `+rhel1+`.
 
 First, we’ll prove to ourselves that port 80 is blocked by the firewall
 running on `+rhel1+`.
 
-Switch to the link:tab-1[button label="`rhel1`"] terminal by clicking on
-this button: link:tab-1[button label="`rhel1`"].
-
-Run the following in link:tab-1[button label="`rhel1`"].
+On the `rhel1` terminal, run the following command.
 
 [source,bash,run]
 ----
 firewall-cmd --list-all
 ----
 
-.fwcmdno80
+.firewall-cmd --list-all
 image::fwcmdno80.png[fwcmdno80]
 
 The output above shows that port 80 is not open.
@@ -26,16 +25,14 @@ In the `+rhel1+` terminal, run `+nc -l 80+`. This command runs the utility
 nc -l 80
 ----
 
-.nclistening
-image::../assets/nclistening.png[nclistening]
+.nc -l 80 - Listening on port 80 on rhel1
+image::nclistening.png[nclistening]
 
 `+netcat+` is now listening on port 80 on `+rhel1+`.
 
-____
-[!WARNING] Do not exit out of `+nc+` in this terminal!
-____
+WARNING: Do not exit out of `+nc+` in this terminal!
 
-Switch back to the link:tab-0[button label="`controlnode`"] terminal.
+Switch back to the `controlnode` terminal.
 
 Enter the command `+nc rhel1 80+`. This tells `+netcat+` to connect to
 port 80 on `+rhel1+`.
@@ -45,8 +42,8 @@ port 80 on `+rhel1+`.
 nc rhel1 80
 ----
 
-.noroute
-image::../assets/no-route.png[noroute]
+.nc rhel1 80 - "No route to host"
+image::no-route.png[noroute]
 
 `+netcat+` cannot connect to `+rhel1+` on port 80.
 
@@ -55,8 +52,7 @@ Let’s use RHEL systems roles to open up port 80 on `+rhel1+`.
 First, Ansible requires a host file pointing at the `+rhel1+` host. The
 host file looks like this.
 
-Copy and paste the following into the link:tab-0[button
-label="`controlnode`"] terminal.
+Run the following command in the `controlnode` terminal.
 
 [source,bash,run]
 ----
@@ -87,18 +83,17 @@ EOF
 ----
 
 Now we’ll apply the system role to `+rhel1+` by running the following
-command on link:tab-0[button label="`controlnode`"] .
+command in the `controlnode` terminal.
 
 [source,bash,run]
 ----
 ansible-playbook -i hosts -b firewall.yml
 ----
 
-.applysystemrole
-image::../assets/applysystemrole.png[applysystemrole]
+.ansible-playbook -i hosts -b firewall.yml - Apply the system role to rhel1
+image::applysystemrole.png[applysystemrole]
 
-Run `+nc rhel1 80+` in the link:tab-0[button label="`controlnode`"]
-terminal again.
+Run `+nc rhel1 80+` in the `controlnode` terminal.
 
 [source,bash,run]
 ----
@@ -106,23 +101,22 @@ nc rhel1 80
 ----
 
 We’ll type something into the terminal and hit enter. You should see it
-printed out in the link:tab-1[button label="`rhel1`"] terminal.
+printed out in the `rhel1` terminal.
 
-.ncresult80
-image::../assets/ncport80.png[ncresult80]
+.The output from the nc command indicates that the port is now open
+image::ncport80.png[ncresult80]
 
-Exit out of `+nc+` in the link:tab-0[button label="`controlnode`"]
-terminal by typing `+ctrl-c+`. This will cause `+nc+` to exit in
-link:tab-1[button label="`rhel1`"].
+Exit out of `+nc+` in the `controlnode` terminal
+terminal by typing `+ctrl-c+`. This will cause `+nc+` to exit in `rhel1`
+terminal.
 
-Finally, we’ll use `+firewall-cmd+` to list the open ports on
-link:tab-1[button label="`rhel1`"]. Switch to the link:tab-1[button
-label="`rhel1`"] terminal and run the following command.
+Finally, we’ll use `+firewall-cmd+` to list the open ports on `rhel1`.
+Switch to the `rhel1` terminal and run the following command.
 
 [source,bash,run]
 ----
 firewall-cmd --list-all
 ----
 
-.fwcmdlistall80
-image::../assets/fwcmdlistall80.png[fwcmdlistall80]
+.firewall-cmd --list-all shows that port 80 (http) is now open
+image::fwcmdlistall80.png[fwcmdlistall80]

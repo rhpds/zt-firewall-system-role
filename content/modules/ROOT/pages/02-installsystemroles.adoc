@@ -1,3 +1,5 @@
+== Install RHEL System Roles
+
 Now we’ll install system roles.
 
 Switch to the `controlnode` terminal by clicking on the `controlnode`
@@ -10,7 +12,7 @@ Enter the following command.
 
 TIP: You can click on the `+run+` button to run the command in the
 terminal. You can also click on the `+copy+` button to copy the command
-to the clipboard.
+to the clipboard and paste it into the `rhel1terminal.
 
 .Run button
 image::run-button.png[runbutton]
@@ -25,5 +27,5 @@ dnf install rhel-system-roles -y
 
 The resulting output will look similar to the output below.
 
-.srinstalled
+.rhel system roles installed
 image::srinstalled.png[srinstalled]
