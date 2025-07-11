@@ -14,7 +14,7 @@ firewall-cmd --list-all
 ----
 
 .fwcmdno80
-image::../assets/fwcmdno80.png[fwcmdno80]
+image::fwcmdno80.png[fwcmdno80]
 
 The output above shows that port 80 is not open.
 
