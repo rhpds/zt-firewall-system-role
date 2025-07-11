@@ -26,7 +26,7 @@ antora:
       solveButton: false
 
 tabs:
-  - name: "Control Node"
+  - name: "controlnode"
     url: /wetty_controlnode/ssh/root
   - name: "rhel1"
     url: /wetty_rhel1/ssh/root

@@ -8,7 +8,6 @@ tab.
 .Controlnode tab
 image::controlnode-tab.png[controlnode tab]
 
-Enter the following command.
 
 TIP: You can click on the `+run+` button to run the command in the
 terminal. You can also click on the `+copy+` button to copy the command
@@ -19,6 +18,8 @@ image::run-button.png[runbutton]
 
 .Copy button
 image::copy-button.png[copybutton]
+
+Enter the following command.
 
 [source,bash,run]
 ----
