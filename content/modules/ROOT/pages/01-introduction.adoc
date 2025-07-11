@@ -29,11 +29,11 @@ how to open an arbitrary firewall port.
 . Finally, we’ll configure port forwarding from 9999 to port 12345 on
 `+rhel1+`.
 
-.afterapplying
-image::../assets/firewallsystemrolesoverview.png[afterapplying]
+.After applying the firewall system role
+image::firewallsystemrolesoverview.png[afterapplying]
 
 You can access each host by clicking on the tabs in the upper left
 corner of the GUI.
 
-.tabs
-image::../assets/instruqt-tab.png[tabs]
+.Tabs
+image::tabs.png[tabs]
