@@ -1,7 +1,9 @@
+== Open Arbitrary Port on rhel1.lab
+
 In this challenge we’ll open port 9999 on `+rhel1+`.
 
-In the link:tab-0[button label="`controlnode`"] terminal, add the lines
-`+- port: ['9999/tcp']+` and `+state: enabled+` to the `+hosts+` file.
+In the `controlnode` terminal, add the lines `+- port: ['9999/tcp']+` and
+`+state: enabled+` to the `+hosts+` file.
 
 The following command will add those lines for you.
 
@@ -13,26 +15,24 @@ tee -a /root/hosts << EOF
 EOF
 ----
 
-Now run the playbook in the link:tab-0[button label="`controlnode`"]
-terminal.
+Now run the playbook in the `controlnode` terminal.
 
 [source,bash,run]
 ----
 ansible-playbook -i hosts -b firewall.yml
 ----
 
-.applyportopen
-image::../assets/applyportopen.png[applyportopen]
+.ansible-playbook -i hosts -b firewall.yml - Apply the system role to rhel1
+image::applysystemrole.png[applysystemrole]
 
-In the link:tab-1[button label="`rhel1`"] terminal, run `+nc+`, listening
-on port 9999.
+In the `rhel1` terminal, run `+nc+`, listening on port 9999.
 
 [source,bash,run]
 ----
 nc -l 9999
 ----
 
-In the link:tab-0[button label="`controlnode`"] terminal, run `+nc+` and
+In the `controlnode` terminal, run `+nc+` and
 then type some stuff.
 
 [source,bash,run]
@@ -40,12 +40,11 @@ then type some stuff.
 nc rhel1 9999
 ----
 
-.ncport9999
-image::../assets/ncport9999.png[ncport9999]
+.nc rhel1 9999 - "No route to host"
+image::no-route.png[noroute]
 
 In the image above the phrase was typed:
 `+the quick brown fox jumps over the lazy dogs+` followed by the
 `+enter+` key.
 
-In the link:tab-0[button label="`controlnode`"] terminal, type
-`+ctrl-c+` to exit `+nc+`.
+In the `controlnode` terminal, type `+ctrl-c+` to exit `+nc+`.

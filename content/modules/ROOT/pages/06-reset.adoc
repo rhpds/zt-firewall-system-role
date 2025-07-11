@@ -1,19 +1,20 @@
+== Reset the firewall configuration on rhel1.lab
+
 The firewall system role can reset all settings to the default
 configuration found immediately after Red Hat Enterprise Linux is
 installed.
 
 We’ll reset the firewall configuration in the `+rhel1+` host.
 
-First, in the link:tab-1[button label="`rhel1`"] terminal, list the
-current rules.
+First, in the `rhel1` terminal, list the current rules.
 
 [source,bash,run]
 ----
 firewall-cmd --list-all
 ----
 
-In the link:tab-0[button label="`controlnode`"] terminal, we’ll create a
-new host file called `+reset+`.
+In the `controlnode` terminal, we’ll create a new host file called
+`+reset+`.
 
 [source,bash,run]
 ----
@@ -27,20 +28,19 @@ all:
 EOF
 ----
 
-From the link:tab-0[button label="`controlnode`"] terminal, run the
-playbook to reset the firewall rules on the `+rhel1+` host.
+From the `controlnode` terminal, run the playbook to reset the firewall
+rules on the `+rhel1+` host.
 
 [source,bash,run]
 ----
 ansible-playbook -i reset -b firewall.yml
 ----
 
-.reset output
-image::../assets/resetplaybook.png[reset output]
+.ansible-playbook -i reset -b firewall.yml - Reset the firewall rules on rhel1
+image::resetplaybook.png[reset output]
 
-When the playbook as stopped running, switch to the link:tab-1[button
-label="`rhel1`"] terminal and check that the firewall rules have been
-reset.
+When the playbook as stopped running, switch to the `rhel1` terminal and
+check that the firewall rules have been reset.
 
 [source,bash,run]
 ----
