@@ -3,7 +3,7 @@
 To make the inline images larger, expand this window.
 
 .Menu Slider
-image::slider.png[Menu Slider]
+image::../assets/images/slider.png[Menu Slider]
 
 image::test.png[test]
 
