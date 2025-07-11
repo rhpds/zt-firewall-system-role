@@ -1,29 +1,25 @@
 Now we’ll install system roles.
 
-Switch to the `controlnode` terminal by clicking on the `controlnode`
-tab.
+Switch to the link:tab-0[button label="`controlnode`"] terminal by
+clicking on this button: link:tab-0[button label="`controlnode`"]
 
-.Controlnode tab
-image::controlnode-tab.png[controlnode tab]
+.rhel tab
+image::../assets/rhel-tab.png[rhel tab]
 
 Enter the following command.
-
-TIP: You can click on the `+run+` button to run the command in the
-terminal. You can also click on the `+copy+` button to copy the command
-to the clipboard.
-
-.Run button
-image::run-button.png[runbutton]
-
-.Copy button
-image::copy-button.png[copybutton]
 
 [source,bash,run]
 ----
 dnf install rhel-system-roles -y
 ----
 
+____
+{empty}[!NOTE] You can click on the `+run+` button and select the
+terminal where you wish to run the command.
+image:../assets/runbutton.png[../assets/runbutton]
+____
+
 The resulting output will look similar to the output below.
 
 .srinstalled
-image::srinstalled.png[srinstalled]
+image::../assets/srinstalled.png[srinstalled]
