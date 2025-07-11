@@ -9,15 +9,19 @@ tab.
 image::controlnode-tab.png[controlnode tab]
 
 
-TIP: You can click on the `+run+` button to run the command in the
+[TIP]
+.Running and copying commands terminals
+====
+You can click on the `+run+` button to run commands in the
 terminal. You can also click on the `+copy+` button to copy the command
-to the clipboard and paste it into the `rhel1terminal.
+to the clipboard and paste it into the `rhel1` terminal.
 
 .Run button
 image::run-button.png[runbutton]
 
 .Copy button
 image::copy-button.png[copybutton]
+====
 
 Enter the following command.
 

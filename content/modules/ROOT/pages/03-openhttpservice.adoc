@@ -2,9 +2,14 @@
 
 In this challenge, we will enable access to the http port 80 on `+rhel1+`.
 
+== Prove port 80 is blocked by the firewall
+
 First, we’ll prove to ourselves that port 80 is blocked by the firewall
 running on `+rhel1+`.
 
+.Prove port 80 is blocked by the firewall
+[%collapsible]
+====
 On the `rhel1` terminal, run the following command.
 
 [source,bash,run]
@@ -46,8 +51,15 @@ nc rhel1 80
 image::no-route.png[noroute]
 
 `+netcat+` cannot connect to `+rhel1+` on port 80.
+====
+
+== Use RHEL systems roles to open up port 80 on rhel1
 
 Let’s use RHEL systems roles to open up port 80 on `+rhel1+`.
+
+.Use RHEL systems roles to open up port 80 on rhel1
+[%collapsible]
+====
 
 First, Ansible requires a host file pointing at the `+rhel1+` host. The
 host file looks like this.
@@ -70,7 +82,7 @@ EOF
 Next, we’ll create a simple Ansible playbook that tells ansible to apply
 the RHEL Firewall system role.
 
-Copy paste and run the following in the CLI.
+Run the following in the CLI.
 
 [source,bash,run]
 ----
@@ -93,6 +105,14 @@ ansible-playbook -i hosts -b firewall.yml
 .ansible-playbook -i hosts -b firewall.yml - Apply the system role to rhel1
 image::applysystemrole.png[applysystemrole]
 
+====
+
+== Prove port 80 is now open on rhel1
+
+Let's prove that port 80 is now open on `+rhel1+`.
+
+[%collapsible]
+====
 Run `+nc rhel1 80+` in the `controlnode` terminal.
 
 [source,bash,run]
@@ -120,3 +140,5 @@ firewall-cmd --list-all
 
 .firewall-cmd --list-all shows that port 80 (http) is now open
 image::fwcmdlistall80.png[fwcmdlistall80]
+
+====
