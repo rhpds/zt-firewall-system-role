@@ -13,6 +13,13 @@ First, in the `rhel1` terminal, list the current rules.
 firewall-cmd --list-all
 ----
 
+The output should look like this:
+
+.Firewall command list all after modifications
+image::fwcmdlistallaftermods.png[Firewall command list all after modifications]
+
+The red boxes show the rules that were added in the previous steps.
+
 In the `controlnode` terminal, we’ll create a new host file called
 `+reset+`.
 
@@ -46,6 +53,9 @@ check that the firewall rules have been reset.
 ----
 firewall-cmd --list-all
 ----
+
+.Firewall command list all after reset
+image::reset.png[reset]
 
 If you want to apply the rules we created in the previous steps of this
 lab, simply run `+ansible-playbook -i hosts -b firewall.yml+` again.
