@@ -40,11 +40,18 @@ then type some stuff.
 nc rhel1 9999
 ----
 
-.nc rhel1 9999 - "No route to host"
-image::no-route.png[noroute]
+Here we are connecting to the `+rhel1+` host on port `+9999+`.
+
+.nc rhel1 9999 - Test
+image::9999connected.png[Connected via port 9999]
+
+Here we are listening on port `+9999+`.
+
+.nc listening on port 9999
+image::9999listening.png[Listening on port 9999]
 
 In the image above the phrase was typed:
-`+the quick brown fox jumps over the lazy dogs+` followed by the
+`+test+` followed by the
 `+enter+` key.
 
 In the `controlnode` terminal, type `+ctrl-c+` to exit `+nc+`.

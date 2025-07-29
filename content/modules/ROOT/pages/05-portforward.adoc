@@ -38,7 +38,17 @@ then type some stuff.
 nc rhel1 9999
 ----
 
-.nc rhel1 9999
-image::portforward.png[ncport9999]
+Here we are connecting to the `+rhel1+` host on port `+9999+`.
+
+.nc rhel1 9999 - Connecting to port 9999 on rhel1
+image::9999connected.png[Connected via port 9999]
+
+Here we are listening on port `+12345+`.
+
+.nc 12345 - Listening on port 12345 on rhel1
+image::12345listening.png[Listening on port 12345]
+
+We can see that the text we typed in the `controlnode` terminal was
+printed out in the `rhel1` terminal.
 
 Type `+ctrl-c+` to exit `+nc+`.
